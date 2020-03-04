@@ -78,7 +78,8 @@ if __name__ == "__main__":
     # main loop
     timestamp = datetime.datetime.now()
     while timestamp.day < 12:
-        
+	
+        print('# Get records: {:d}'.format(len(init_df[-1])))
         for idx, df in enumerate(init_df):
             df_update = update_and_save(df, fn[idx],
                                         url=urls[idx],
