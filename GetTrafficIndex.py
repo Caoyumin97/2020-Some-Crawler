@@ -29,16 +29,16 @@ def get_data(url):
 
 
 
-if __name__ == "__main__"
-# main loop
-url = 'https://jiaotong.baidu.com/trafficindex/city/list'
-IndexData = pd.DataFrame(columns=['time','citycode','speed','index','last_index'])
+if __name__ == "__main__":
+	# main loop
+	url = 'https://jiaotong.baidu.com/trafficindex/city/list'
+	IndexData = pd.DataFrame(columns=['time','citycode','speed','index','last_index'])
 
-while datetime.datetime.now().day < 12:
+	while datetime.datetime.now().day < 12:
 
-    print('# Get records: {:d}'.format(len(IndexData)))
-    indexDf = get_data(url)
-    IndexData = pd.concat((IndexData, indexDf),axis=0)
-    IndexData.to_csv('./IndexData.csv',index  = None)
-    time.sleep(300)
+		print('# Get records: {:d}'.format(len(IndexData)))
+		indexDf = get_data(url)
+		IndexData = pd.concat((IndexData, indexDf),axis=0)
+		IndexData.to_csv('./IndexData.csv',index  = None)
+		time.sleep(300)
 
